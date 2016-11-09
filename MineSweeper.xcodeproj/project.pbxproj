@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BFAB3C271DD39ECC00A15B9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAB3C261DD39ECC00A15B9B /* main.m */; };
+		BFAB3C2A1DD39ECC00A15B9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAB3C291DD39ECC00A15B9B /* AppDelegate.m */; };
+		BFAB3C2D1DD39ECC00A15B9B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAB3C2C1DD39ECC00A15B9B /* ViewController.m */; };
+		BFAB3C301DD39ECC00A15B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFAB3C2E1DD39ECC00A15B9B /* Main.storyboard */; };
+		BFAB3C321DD39ECC00A15B9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFAB3C311DD39ECC00A15B9B /* Assets.xcassets */; };
+		BFAB3C351DD39ECC00A15B9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFAB3C331DD39ECC00A15B9B /* LaunchScreen.storyboard */; };
+		BFAB3C401DD39ECC00A15B9B /* MineSweeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAB3C3F1DD39ECC00A15B9B /* MineSweeperTests.m */; };
+		BFAB3C4B1DD39ECC00A15B9B /* MineSweeperUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAB3C4A1DD39ECC00A15B9B /* MineSweeperUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BFAB3C3C1DD39ECC00A15B9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFAB3C1A1DD39ECC00A15B9B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFAB3C211DD39ECC00A15B9B;
+			remoteInfo = MineSweeper;
+		};
+		BFAB3C471DD39ECC00A15B9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFAB3C1A1DD39ECC00A15B9B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFAB3C211DD39ECC00A15B9B;
+			remoteInfo = MineSweeper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BFAB3C221DD39ECC00A15B9B /* MineSweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MineSweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFAB3C261DD39ECC00A15B9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BFAB3C281DD39ECC00A15B9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BFAB3C291DD39ECC00A15B9B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BFAB3C2B1DD39ECC00A15B9B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BFAB3C2C1DD39ECC00A15B9B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BFAB3C2F1DD39ECC00A15B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BFAB3C311DD39ECC00A15B9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BFAB3C341DD39ECC00A15B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BFAB3C361DD39ECC00A15B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFAB3C3B1DD39ECC00A15B9B /* MineSweeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MineSweeperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFAB3C3F1DD39ECC00A15B9B /* MineSweeperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSweeperTests.m; sourceTree = "<group>"; };
+		BFAB3C411DD39ECC00A15B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFAB3C461DD39ECC00A15B9B /* MineSweeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MineSweeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFAB3C4A1DD39ECC00A15B9B /* MineSweeperUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSweeperUITests.m; sourceTree = "<group>"; };
+		BFAB3C4C1DD39ECC00A15B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BFAB3C1F1DD39ECC00A15B9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFAB3C381DD39ECC00A15B9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFAB3C431DD39ECC00A15B9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BFAB3C191DD39ECC00A15B9B = {
+			isa = PBXGroup;
+			children = (
+				BFAB3C241DD39ECC00A15B9B /* MineSweeper */,
+				BFAB3C3E1DD39ECC00A15B9B /* MineSweeperTests */,
+				BFAB3C491DD39ECC00A15B9B /* MineSweeperUITests */,
+				BFAB3C231DD39ECC00A15B9B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BFAB3C231DD39ECC00A15B9B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFAB3C221DD39ECC00A15B9B /* MineSweeper.app */,
+				BFAB3C3B1DD39ECC00A15B9B /* MineSweeperTests.xctest */,
+				BFAB3C461DD39ECC00A15B9B /* MineSweeperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFAB3C241DD39ECC00A15B9B /* MineSweeper */ = {
+			isa = PBXGroup;
+			children = (
+				BFAB3C281DD39ECC00A15B9B /* AppDelegate.h */,
+				BFAB3C291DD39ECC00A15B9B /* AppDelegate.m */,
+				BFAB3C2B1DD39ECC00A15B9B /* ViewController.h */,
+				BFAB3C2C1DD39ECC00A15B9B /* ViewController.m */,
+				BFAB3C2E1DD39ECC00A15B9B /* Main.storyboard */,
+				BFAB3C311DD39ECC00A15B9B /* Assets.xcassets */,
+				BFAB3C331DD39ECC00A15B9B /* LaunchScreen.storyboard */,
+				BFAB3C361DD39ECC00A15B9B /* Info.plist */,
+				BFAB3C251DD39ECC00A15B9B /* Supporting Files */,
+			);
+			path = MineSweeper;
+			sourceTree = "<group>";
+		};
+		BFAB3C251DD39ECC00A15B9B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BFAB3C261DD39ECC00A15B9B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BFAB3C3E1DD39ECC00A15B9B /* MineSweeperTests */ = {
+			isa = PBXGroup;
+			children = (
+				BFAB3C3F1DD39ECC00A15B9B /* MineSweeperTests.m */,
+				BFAB3C411DD39ECC00A15B9B /* Info.plist */,
+			);
+			path = MineSweeperTests;
+			sourceTree = "<group>";
+		};
+		BFAB3C491DD39ECC00A15B9B /* MineSweeperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BFAB3C4A1DD39ECC00A15B9B /* MineSweeperUITests.m */,
+				BFAB3C4C1DD39ECC00A15B9B /* Info.plist */,
+			);
+			path = MineSweeperUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BFAB3C211DD39ECC00A15B9B /* MineSweeper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFAB3C4F1DD39ECC00A15B9B /* Build configuration list for PBXNativeTarget "MineSweeper" */;
+			buildPhases = (
+				BFAB3C1E1DD39ECC00A15B9B /* Sources */,
+				BFAB3C1F1DD39ECC00A15B9B /* Frameworks */,
+				BFAB3C201DD39ECC00A15B9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MineSweeper;
+			productName = MineSweeper;
+			productReference = BFAB3C221DD39ECC00A15B9B /* MineSweeper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BFAB3C3A1DD39ECC00A15B9B /* MineSweeperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFAB3C521DD39ECC00A15B9B /* Build configuration list for PBXNativeTarget "MineSweeperTests" */;
+			buildPhases = (
+				BFAB3C371DD39ECC00A15B9B /* Sources */,
+				BFAB3C381DD39ECC00A15B9B /* Frameworks */,
+				BFAB3C391DD39ECC00A15B9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BFAB3C3D1DD39ECC00A15B9B /* PBXTargetDependency */,
+			);
+			name = MineSweeperTests;
+			productName = MineSweeperTests;
+			productReference = BFAB3C3B1DD39ECC00A15B9B /* MineSweeperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BFAB3C451DD39ECC00A15B9B /* MineSweeperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFAB3C551DD39ECC00A15B9B /* Build configuration list for PBXNativeTarget "MineSweeperUITests" */;
+			buildPhases = (
+				BFAB3C421DD39ECC00A15B9B /* Sources */,
+				BFAB3C431DD39ECC00A15B9B /* Frameworks */,
+				BFAB3C441DD39ECC00A15B9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BFAB3C481DD39ECC00A15B9B /* PBXTargetDependency */,
+			);
+			name = MineSweeperUITests;
+			productName = MineSweeperUITests;
+			productReference = BFAB3C461DD39ECC00A15B9B /* MineSweeperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFAB3C1A1DD39ECC00A15B9B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = LILouis;
+				TargetAttributes = {
+					BFAB3C211DD39ECC00A15B9B = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 5M33A8S27U;
+						ProvisioningStyle = Automatic;
+					};
+					BFAB3C3A1DD39ECC00A15B9B = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 5M33A8S27U;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BFAB3C211DD39ECC00A15B9B;
+					};
+					BFAB3C451DD39ECC00A15B9B = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 5M33A8S27U;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BFAB3C211DD39ECC00A15B9B;
+					};
+				};
+			};
+			buildConfigurationList = BFAB3C1D1DD39ECC00A15B9B /* Build configuration list for PBXProject "MineSweeper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BFAB3C191DD39ECC00A15B9B;
+			productRefGroup = BFAB3C231DD39ECC00A15B9B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BFAB3C211DD39ECC00A15B9B /* MineSweeper */,
+				BFAB3C3A1DD39ECC00A15B9B /* MineSweeperTests */,
+				BFAB3C451DD39ECC00A15B9B /* MineSweeperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BFAB3C201DD39ECC00A15B9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFAB3C351DD39ECC00A15B9B /* LaunchScreen.storyboard in Resources */,
+				BFAB3C321DD39ECC00A15B9B /* Assets.xcassets in Resources */,
+				BFAB3C301DD39ECC00A15B9B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFAB3C391DD39ECC00A15B9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFAB3C441DD39ECC00A15B9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BFAB3C1E1DD39ECC00A15B9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFAB3C2D1DD39ECC00A15B9B /* ViewController.m in Sources */,
+				BFAB3C2A1DD39ECC00A15B9B /* AppDelegate.m in Sources */,
+				BFAB3C271DD39ECC00A15B9B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFAB3C371DD39ECC00A15B9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFAB3C401DD39ECC00A15B9B /* MineSweeperTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFAB3C421DD39ECC00A15B9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFAB3C4B1DD39ECC00A15B9B /* MineSweeperUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BFAB3C3D1DD39ECC00A15B9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFAB3C211DD39ECC00A15B9B /* MineSweeper */;
+			targetProxy = BFAB3C3C1DD39ECC00A15B9B /* PBXContainerItemProxy */;
+		};
+		BFAB3C481DD39ECC00A15B9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFAB3C211DD39ECC00A15B9B /* MineSweeper */;
+			targetProxy = BFAB3C471DD39ECC00A15B9B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BFAB3C2E1DD39ECC00A15B9B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFAB3C2F1DD39ECC00A15B9B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BFAB3C331DD39ECC00A15B9B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFAB3C341DD39ECC00A15B9B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BFAB3C4D1DD39ECC00A15B9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BFAB3C4E1DD39ECC00A15B9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BFAB3C501DD39ECC00A15B9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5M33A8S27U;
+				INFOPLIST_FILE = MineSweeper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Louis.MineSweeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BFAB3C511DD39ECC00A15B9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5M33A8S27U;
+				INFOPLIST_FILE = MineSweeper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Louis.MineSweeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BFAB3C531DD39ECC00A15B9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5M33A8S27U;
+				INFOPLIST_FILE = MineSweeperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Louis.MineSweeperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MineSweeper.app/MineSweeper";
+			};
+			name = Debug;
+		};
+		BFAB3C541DD39ECC00A15B9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5M33A8S27U;
+				INFOPLIST_FILE = MineSweeperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Louis.MineSweeperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MineSweeper.app/MineSweeper";
+			};
+			name = Release;
+		};
+		BFAB3C561DD39ECC00A15B9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 5M33A8S27U;
+				INFOPLIST_FILE = MineSweeperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Louis.MineSweeperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MineSweeper;
+			};
+			name = Debug;
+		};
+		BFAB3C571DD39ECC00A15B9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 5M33A8S27U;
+				INFOPLIST_FILE = MineSweeperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Louis.MineSweeperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MineSweeper;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BFAB3C1D1DD39ECC00A15B9B /* Build configuration list for PBXProject "MineSweeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFAB3C4D1DD39ECC00A15B9B /* Debug */,
+				BFAB3C4E1DD39ECC00A15B9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFAB3C4F1DD39ECC00A15B9B /* Build configuration list for PBXNativeTarget "MineSweeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFAB3C501DD39ECC00A15B9B /* Debug */,
+				BFAB3C511DD39ECC00A15B9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BFAB3C521DD39ECC00A15B9B /* Build configuration list for PBXNativeTarget "MineSweeperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFAB3C531DD39ECC00A15B9B /* Debug */,
+				BFAB3C541DD39ECC00A15B9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BFAB3C551DD39ECC00A15B9B /* Build configuration list for PBXNativeTarget "MineSweeperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFAB3C561DD39ECC00A15B9B /* Debug */,
+				BFAB3C571DD39ECC00A15B9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFAB3C1A1DD39ECC00A15B9B /* Project object */;
+}
