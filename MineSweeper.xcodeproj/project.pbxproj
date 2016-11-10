@@ -15,6 +15,7 @@
 		BFAB3C351DD39ECC00A15B9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFAB3C331DD39ECC00A15B9B /* LaunchScreen.storyboard */; };
 		BFAB3C401DD39ECC00A15B9B /* MineSweeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAB3C3F1DD39ECC00A15B9B /* MineSweeperTests.m */; };
 		BFAB3C4B1DD39ECC00A15B9B /* MineSweeperUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAB3C4A1DD39ECC00A15B9B /* MineSweeperUITests.m */; };
+		BFAB3C591DD3E2B000A15B9B /* Assets扫雷 in Resources */ = {isa = PBXBuildFile; fileRef = BFAB3C581DD3E2B000A15B9B /* Assets扫雷 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		BFAB3C461DD39ECC00A15B9B /* MineSweeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MineSweeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFAB3C4A1DD39ECC00A15B9B /* MineSweeperUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSweeperUITests.m; sourceTree = "<group>"; };
 		BFAB3C4C1DD39ECC00A15B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFAB3C581DD3E2B000A15B9B /* Assets扫雷 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Assets扫雷"; path = "../../../homework1/Assets扫雷"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		BFAB3C241DD39ECC00A15B9B /* MineSweeper */ = {
 			isa = PBXGroup;
 			children = (
+				BFAB3C581DD3E2B000A15B9B /* Assets扫雷 */,
 				BFAB3C281DD39ECC00A15B9B /* AppDelegate.h */,
 				BFAB3C291DD39ECC00A15B9B /* AppDelegate.m */,
 				BFAB3C2B1DD39ECC00A15B9B /* ViewController.h */,
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFAB3C351DD39ECC00A15B9B /* LaunchScreen.storyboard in Resources */,
+				BFAB3C591DD3E2B000A15B9B /* Assets扫雷 in Resources */,
 				BFAB3C321DD39ECC00A15B9B /* Assets.xcassets in Resources */,
 				BFAB3C301DD39ECC00A15B9B /* Main.storyboard in Resources */,
 			);
