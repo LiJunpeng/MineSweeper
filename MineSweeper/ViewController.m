@@ -14,10 +14,18 @@
 
 @implementation ViewController
 
-NSArray *mine_board;
+UIButton *cheat_button;
+
+NSMutableArray *button_array;
+NSMutableArray *mine_array;
+NSMutableArray *status_array;
 NSArray *tile_icons;
 
 NSInteger mine_marked;
+NSInteger rows;
+NSInteger cols;
+NSInteger mines;
+BOOL cheat_mode;
 
 
 - (void)viewDidLoad {
@@ -27,26 +35,77 @@ NSInteger mine_marked;
     
     tile_icons = @[[UIImage imageNamed: @"0.png"], [UIImage imageNamed: @"1.png"],[UIImage imageNamed: @"2.png"],[UIImage imageNamed: @"3.png"],[UIImage imageNamed: @"4.png"],[UIImage imageNamed: @"5.png"],[UIImage imageNamed: @"6.png"],[UIImage imageNamed: @"7.png"],[UIImage imageNamed: @"8.png"],[UIImage imageNamed: @"unopen.png"],[UIImage imageNamed: @"question.png"],[UIImage imageNamed: @"flag.png"],[UIImage imageNamed: @"mine.png"],[UIImage imageNamed: @"failed_flag.png"],[UIImage imageNamed: @"explode.png"]];
     
+    [self initGame];
+    
+}
+
+- (void) initGame {
+    
     [self generateBoard];
+    cheat_mode = false;
+    
+    UIButton *cheat_button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [cheat_button setTitle: @"Cheat?" forState: UIControlStateNormal];
+    [cheat_button.layer setBorderWidth:1.0];
+    cheat_button.bounds = CGRectMake(0, 0, 140, 30);
+    cheat_button.center = CGPointMake(320.0 * 2 / 3, 40);
+    cheat_button.tag = -2;
+    [cheat_button addTarget:self action:@selector(toggleCheatMode:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:cheat_button];
     
 }
 
 
 - (void) generateBoard {
+    
+    rows = 3;
+    cols = 3;
+    mines = 4;
 
-    for(int i = 1; i <= 64; i++) {
-        NSInteger x = 50 + 40 * ((i - 1) % 8);
-        NSInteger y =100 + ((i - 1) / 8) * 40;
-        [self generateTile: i withX: x withY: y];
+    button_array = [[NSMutableArray alloc] init];
+    [button_array addObject: @"spare"];
+    for(int i = 1; i <= rows; i++) {
+        for(int j = 1; j <= cols; j++ ) {
+            NSInteger tag_number = j + (i - 1) * 8;
+            NSInteger x = 40 * j;
+            NSInteger y =100 + (i - 1) * 40;
+            [button_array addObject: [self generateTile: tag_number withX: x withY: y]];
+        }
     }
     
+    
+//    UIButton *b = mine_board[1];
+//    [b setBackgroundImage:tile_icons[8] forState:UIControlStateNormal];
+    
+    mine_array = [[NSMutableArray alloc] init];
+    for(int i = 0; i <= rows * cols; i++) {
+        [mine_array addObject: [NSNumber numberWithInt:0]];
+        //NSLog(@"%d",[[mine_array objectAtIndex: i]intValue]);
+    }
+    
+    for(int i = 0; i <= rows * cols; i++) {
+        [status_array addObject: [NSNumber numberWithInt:9]];
+        //NSLog(@"%d",[[mine_array objectAtIndex: i]intValue]);
+    }
+    
+    NSInteger count = 0;
+    while(count < mines) {
+        NSInteger random_number = arc4random_uniform(rows * cols - 1) + 1;
+        if([[mine_array objectAtIndex: random_number]intValue] == 1) {
+            continue;
+        }
+        [mine_array replaceObjectAtIndex: random_number withObject: [NSNumber numberWithInt:1]];
+        count++;
+    }
+    
+
 }
 
 
-- (void) generateTile: (NSInteger) tag_number withX: (NSInteger) x withY: (NSInteger) y {
+- (UIButton*) generateTile: (NSInteger) tag_number withX: (NSInteger) x withY: (NSInteger) y {
     
         UIButton *tile = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [tile setTitle: [NSString stringWithFormat:@"%d", tag_number] forState: UIControlStateNormal];
+        //[tile setTitle: [NSString stringWithFormat:@"%d", tag_number] forState: UIControlStateNormal];
         [tile setTitle: @"" forState: UIControlStateNormal];
         [tile setBackgroundImage:tile_icons[9] forState:UIControlStateNormal];
         [tile.layer setBorderWidth:3.0];
@@ -54,7 +113,7 @@ NSInteger mine_marked;
 
         tile.center = CGPointMake(x, y);
         tile.tag = tag_number;
-    NSLog(@"%d",tag_number);
+    //NSLog(@"%d",tag_number);
     
         UILongPressGestureRecognizer *long_press = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
         [tile addGestureRecognizer:long_press];
@@ -63,8 +122,26 @@ NSInteger mine_marked;
         [tile addGestureRecognizer:single_tap];
     
         [self.view addSubview:tile];
-    
+    return tile;
 }
+
+- (void) revealBoard {
+    for(int i = 1; i <= rows * cols; i++) {
+        if([[mine_array objectAtIndex:i] intValue] == 1) {
+            UIButton *button = [button_array objectAtIndex:i];
+            [button setBackgroundImage:tile_icons[12] forState:UIControlStateNormal];
+        }
+    }
+}
+
+- (void) concealBoard {
+    for(int i = 1; i <= rows * cols; i++) {
+        UIButton *button = [button_array objectAtIndex:i];
+        NSInteger status = [[status_array objectAtIndex:i] intValue];
+        [button setBackgroundImage:tile_icons[status] forState:UIControlStateNormal];
+    }
+}
+
 
 
 - (void)longPress:(UILongPressGestureRecognizer*)gesture {
@@ -80,11 +157,19 @@ NSInteger mine_marked;
 
 }
 
+- (void) toggleCheatMode:(UIButton *)button {
+    
+    if(cheat_mode) {
+        [button setTitle: @"Play" forState: UIControlStateNormal];
+        [self revealBoard];
+    } else {
+        [button setTitle: @"Cheat?" forState: UIControlStateNormal];
+        [self concealBoard];
+    }
+    cheat_mode = !cheat_mode;
+    
+}
 
-//- (void) buttonTouchUpInside:(UIButton *)button {
-//    NSLog(@"push");
-//
-//}
 
 
 
