@@ -66,7 +66,7 @@ BOOL cheat_mode;
     [button_array addObject: @"spare"];
     for(int i = 1; i <= rows; i++) {
         for(int j = 1; j <= cols; j++ ) {
-            NSInteger tag_number = j + (i - 1) * 8;
+            NSInteger tag_number = j + (i - 1) * cols;
             NSInteger x = 40 * j;
             NSInteger y =100 + (i - 1) * 40;
             [button_array addObject: [self generateTile: tag_number withX: x withY: y]];
@@ -83,9 +83,10 @@ BOOL cheat_mode;
         //NSLog(@"%d",[[mine_array objectAtIndex: i]intValue]);
     }
     
+    status_array = [[NSMutableArray alloc] init];  //!!!!!!!!!!!!
     for(int i = 0; i <= rows * cols; i++) {
         [status_array addObject: [NSNumber numberWithInt:9]];
-        //NSLog(@"%d",[[mine_array objectAtIndex: i]intValue]);
+        //NSLog(@"%d",[[status_array objectAtIndex: i] intValue]);
     }
     
     NSInteger count = 0;
@@ -134,7 +135,15 @@ BOOL cheat_mode;
     }
 }
 
-- (void) concealBoard {
+//- (void) concealBoard {
+//    for(int i = 1; i <= rows * cols; i++) {
+//        UIButton *button = [button_array objectAtIndex:i];
+//        NSInteger status = [[status_array objectAtIndex:i] intValue];
+//        [button setBackgroundImage:tile_icons[status] forState:UIControlStateNormal];
+//    }
+//}
+
+- (void) updateBoardUI {
     for(int i = 1; i <= rows * cols; i++) {
         UIButton *button = [button_array objectAtIndex:i];
         NSInteger status = [[status_array objectAtIndex:i] intValue];
@@ -143,11 +152,21 @@ BOOL cheat_mode;
 }
 
 
-
 - (void)longPress:(UILongPressGestureRecognizer*)gesture {
     if (gesture.state == UIGestureRecognizerStateBegan) {
-        UIButton *button = (UIButton *)gesture.view;
-        [button setBackgroundImage:tile_icons[1] forState:UIControlStateNormal];
+        UIButton *button = (UIButton *)gesture.view;   // get button object
+        NSInteger status = [[status_array objectAtIndex: button.tag] intValue];  // get button status
+        NSLog(@"%d", status);
+        if(status == 9) {
+            [status_array replaceObjectAtIndex:button.tag withObject: [NSNumber numberWithInt: 11]];
+        } else if(status == 11) {
+            [status_array replaceObjectAtIndex:button.tag withObject: [NSNumber numberWithInt: 10]];
+        } else if(status == 10) {
+            [status_array replaceObjectAtIndex:button.tag withObject: [NSNumber numberWithInt: 9]];
+        }
+        
+        [self updateBoardUI];
+        //[button setBackgroundImage:tile_icons[1] forState:UIControlStateNormal];
     }
 }
 
@@ -164,7 +183,8 @@ BOOL cheat_mode;
         [self revealBoard];
     } else {
         [button setTitle: @"Cheat?" forState: UIControlStateNormal];
-        [self concealBoard];
+        //[self concealBoard];
+        [self updateBoardUI];
     }
     cheat_mode = !cheat_mode;
     
