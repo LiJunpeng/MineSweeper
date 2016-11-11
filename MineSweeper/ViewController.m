@@ -69,7 +69,7 @@ NSInteger game_status;  // 0 - not in gmae, 1 - in game,
 
 - (void) generateBoard {
     
-    rows = 8;
+    rows = 12;
     cols = 8;
     mines = 8;
 
