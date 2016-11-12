@@ -16,6 +16,9 @@
 
 UIButton *start_button;
 UIButton *cheat_button;
+UIButton *decrease_hard_level;
+UIButton *increase_hard_level;
+UILabel *hard_level_label;
 
 NSMutableArray *button_array;
 NSMutableArray *mine_array;
@@ -28,6 +31,7 @@ NSInteger cols;
 NSInteger mines;
 BOOL cheat_mode;  // need?
 NSInteger game_status;  // 0 - not in gmae, 1 - in game,
+NSInteger hard_level;  // 1 ~ 3
 
 
 - (void)viewDidLoad {
@@ -37,13 +41,28 @@ NSInteger game_status;  // 0 - not in gmae, 1 - in game,
     // init icon array
     tile_icons = @[[UIImage imageNamed: @"0.png"], [UIImage imageNamed: @"1.png"],[UIImage imageNamed: @"2.png"],[UIImage imageNamed: @"3.png"],[UIImage imageNamed: @"4.png"],[UIImage imageNamed: @"5.png"],[UIImage imageNamed: @"6.png"],[UIImage imageNamed: @"7.png"],[UIImage imageNamed: @"8.png"],[UIImage imageNamed: @"unopen.png"],[UIImage imageNamed: @"question.png"],[UIImage imageNamed: @"flag.png"],[UIImage imageNamed: @"mine.png"],[UIImage imageNamed: @"failed_flag.png"],[UIImage imageNamed: @"explode.png"]];
     
+    hard_level = 1; // default hard level
+    rows = 0;
+    cols = 0;
+    mines = 0;
+    
     // set up UI
+    // too lazy to set up Navigation controller, use label as background instead
+    UILabel *top_bar_label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 70)];
+    top_bar_label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"title_bar.png"]];
+
+    //top_bar_label.text = @"Easy";
+    //top_bar_label.center = CGPointMake([[UIScreen mainScreen] bounds].size.width / 2 , 40);
+    //[label setFont:[UIFont boldSystemFontOfSize:16]];
+    //[top_bar_label  setTextAlignment: UITextAlignmentCenter];
+    [self.view addSubview: top_bar_label ];
+    
     // create cheat button
     UIButton *cheat_button = [UIButton buttonWithType:UIButtonTypeCustom];
     [cheat_button setTitle: @"Cheat?" forState: UIControlStateNormal];
-    [cheat_button.layer setBorderWidth:1.0];
-    cheat_button.bounds = CGRectMake(0, 0, 100, 30);
-    cheat_button.center = CGPointMake(320.0 * 2 / 3, 40);
+    //[cheat_button.layer setBorderWidth:1.0];
+    cheat_button.bounds = CGRectMake(0, 0, 80, 30);
+    cheat_button.center = CGPointMake([[UIScreen mainScreen] bounds].size.width - 50, 40);
     cheat_button.tag = -2;     // just in case
     [cheat_button addTarget:self action:@selector(cheatButtonPushed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:cheat_button];
@@ -51,14 +70,42 @@ NSInteger game_status;  // 0 - not in gmae, 1 - in game,
     // create start button
     UIButton *start_button = [UIButton buttonWithType:UIButtonTypeCustom];
     [start_button setTitle: @"Start" forState: UIControlStateNormal];
-    [start_button.layer setBorderWidth:1.0];
-    start_button.bounds = CGRectMake(0, 0, 100, 30);
-    start_button.center = CGPointMake(320.0 * 1 / 3, 40);
+    //[start_button.layer setBorderWidth:1.0];
+    start_button.bounds = CGRectMake(0, 0, 80, 30);
+    start_button.center = CGPointMake(50, 40);
     start_button.tag = -1;
     [start_button addTarget:self action:@selector(startGame:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:start_button];
     
+    decrease_hard_level = [UIButton buttonWithType:UIButtonTypeCustom];
+    [decrease_hard_level setTitle: @"" forState: UIControlStateNormal];
+    [decrease_hard_level setBackgroundImage:[UIImage imageNamed:@"left_arrow.png"] forState:UIControlStateNormal];
+    //[decrease_hard_level.layer setBorderWidth:1.0];
+    decrease_hard_level.bounds = CGRectMake(0, 0, 20, 20);
+    decrease_hard_level.center = CGPointMake([[UIScreen mainScreen] bounds].size.width / 2 - 45, 40);
+    decrease_hard_level.tag = -3;
+    [decrease_hard_level addTarget:self action:@selector(decreaseHardLevel:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:decrease_hard_level];
+    
+    increase_hard_level = [UIButton buttonWithType:UIButtonTypeCustom];
+    [increase_hard_level setTitle: @"" forState: UIControlStateNormal];
+    [increase_hard_level setBackgroundImage:[UIImage imageNamed:@"right_arrow.png"] forState:UIControlStateNormal];
+    //[increase_hard_level.layer setBorderWidth:1.0];
+    increase_hard_level.bounds = CGRectMake(0, 0, 20, 20);
+    increase_hard_level.center = CGPointMake([[UIScreen mainScreen] bounds].size.width / 2 + 45, 40);
+    increase_hard_level.tag = -1;
+    [increase_hard_level addTarget:self action:@selector(increaseHardLevel:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:increase_hard_level];
+    
+    hard_level_label = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 80, 30)];
+    hard_level_label.text = @"Easy";
+    hard_level_label.center = CGPointMake([[UIScreen mainScreen] bounds].size.width / 2 , 40);
+    //[label setFont:[UIFont boldSystemFontOfSize:16]];
+    [hard_level_label setTextAlignment: UITextAlignmentCenter];
+    [self.view addSubview:hard_level_label];
+    
 }
+
 
 - (void) initGame {
     
@@ -70,17 +117,41 @@ NSInteger game_status;  // 0 - not in gmae, 1 - in game,
 
 - (void) generateBoard {
     
-    rows = 12;
-    cols = 8;
-    mines = 8;
+//    rows = 12;
+//    cols = 8;
+//    mines = 8;
+    
+    switch(hard_level)
+    {
+        case 1:
+            rows = 8;
+            cols = 8;
+            mines = 8;
+            break;
+        case 2:
+            rows = 11;
+            cols = 8;
+            mines = 12;
+            break;
+        case 3:
+            rows = 14;
+            cols = 8;
+            mines = 16;
+            break;
+        default:
+            break;
+    }
+    
+    //NSInteger tile_width = ([[UIScreen mainScreen] bounds].size.width - 20) / cols;
 
     button_array = [[NSMutableArray alloc] init];  // init button array
     [button_array addObject: @"spare"];     // add object for [0]
     for(int i = 1; i <= rows; i++) {     // array index start from 1
         for(int j = 1; j <= cols; j++ ) {
             NSInteger tag_number = j + (i - 1) * cols;
-            NSInteger x = 40 * j;             // cord-x
-            NSInteger y =100 + (i - 1) * 40;  // cord-y
+            //NSInteger x = 40 * j;             // cord-x
+            NSInteger x = ([[UIScreen mainScreen] bounds].size.width - 40 * cols) / 2 + 20 + 40 * (j - 1);
+            NSInteger y = 100 + (i - 1) * 40;  // cord-y
             [button_array addObject: [self generateTile: tag_number withX: x withY: y]];
         }
     }
@@ -126,6 +197,20 @@ NSInteger game_status;  // 0 - not in gmae, 1 - in game,
 
     [self.view addSubview:tile];
     return tile;
+}
+
+- (void) clearBoard {
+    NSLog(@"cancel");
+    if(cols != 0 && rows != 0) {
+        NSLog(@"fff");
+        for(int i = 1; i <= rows * cols; i++) {
+            UIButton *button = [button_array objectAtIndex:i];
+            [button removeFromSuperview];
+        }
+        mine_array = nil;
+        status_array = nil;
+        button_array = nil;
+    }
 }
 
 - (void) revealBoard {  // reveal mines in cheat mode
@@ -185,6 +270,9 @@ NSInteger game_status;  // 0 - not in gmae, 1 - in game,
                                               otherButtonTitles:nil];
         [alert show];
         game_status = 0;
+        hard_level_label.hidden = NO;
+        decrease_hard_level.hidden = NO;
+        increase_hard_level.hidden = NO;
     }
 }
 
@@ -251,6 +339,9 @@ NSInteger game_status;  // 0 - not in gmae, 1 - in game,
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+    hard_level_label.hidden = NO;
+    decrease_hard_level.hidden = NO;
+    increase_hard_level.hidden = NO;
 }
 
 
@@ -267,7 +358,7 @@ NSInteger game_status;  // 0 - not in gmae, 1 - in game,
             } else if(status == 10) {  // clear mark
                 [status_array replaceObjectAtIndex:button.tag withObject: [NSNumber numberWithInt: 9]];
             }
-            
+
             [self checkForWin];
             [self updateBoardUI];
         }
@@ -296,6 +387,7 @@ NSInteger game_status;  // 0 - not in gmae, 1 - in game,
     int mine_count = [self countSurroundMines: root.tag];  // count mines surrounding
 
     [status_array replaceObjectAtIndex:root.tag withObject: [NSNumber numberWithInt: mine_count]];  // change self status basing on the mines counts
+    root.enabled = NO;
     if(mine_count == 0) {  // if there is no mine in it's surrounding, check tiles on it top, left, right, and bottom
         
         int total_tiles = cols * rows;
@@ -318,7 +410,7 @@ NSInteger game_status;  // 0 - not in gmae, 1 - in game,
     if(game_status == 1) {
         cheat_mode = !cheat_mode;
         if(cheat_mode) {
-            [button setTitle: @"Stop Cheat" forState: UIControlStateNormal];
+            [button setTitle: @"Cancel" forState: UIControlStateNormal];
         } else {
             [button setTitle: @"Cheat?" forState: UIControlStateNormal];
         }
@@ -337,8 +429,56 @@ NSInteger game_status;  // 0 - not in gmae, 1 - in game,
 - (void) startGame:(UIButton *)button {
     if(game_status == 0) {
         game_status = 1;
+        [self clearBoard];
         [self initGame];
+        hard_level_label.hidden = YES;
+        decrease_hard_level.hidden = YES;
+        increase_hard_level.hidden = YES;
     }
+}
+
+- (void) decreaseHardLevel:(UIButton *) button {
+    if(hard_level > 1) {
+        hard_level--;
+    }
+    
+    switch(hard_level)
+    {
+        case 1:
+            hard_level_label.text = @"Easy";
+            break;
+        case 2:
+            hard_level_label.text = @"Medium";
+            break;
+        case 3:
+            hard_level_label.text = @"Hard";
+            break;
+        default:
+            break;
+    }
+   // NSLog(@"%d", hard_level);
+}
+
+- (void) increaseHardLevel:(UIButton *) button {
+    if(hard_level < 3) {
+        hard_level++;
+    }
+    switch(hard_level)
+    {
+        case 1:
+            hard_level_label.text = @"Easy";
+            break;
+        case 2:
+            hard_level_label.text = @"Medium";
+            break;
+        case 3:
+            hard_level_label.text = @"Hard";
+            break;
+        default:
+            break;
+    }
+    
+       // NSLog(@"%d", hard_level);
 }
 
 
