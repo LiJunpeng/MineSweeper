@@ -50,11 +50,6 @@ NSInteger hard_level;  // 1 ~ 3
     // too lazy to set up Navigation controller, use label as background instead
     UILabel *top_bar_label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 70)];
     top_bar_label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"title_bar.png"]];
-
-    //top_bar_label.text = @"Easy";
-    //top_bar_label.center = CGPointMake([[UIScreen mainScreen] bounds].size.width / 2 , 40);
-    //[label setFont:[UIFont boldSystemFontOfSize:16]];
-    //[top_bar_label  setTextAlignment: UITextAlignmentCenter];
     [self.view addSubview: top_bar_label ];
     
     // create cheat button
@@ -77,6 +72,7 @@ NSInteger hard_level;  // 1 ~ 3
     [start_button addTarget:self action:@selector(startGame:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:start_button];
     
+    // create left arrow
     decrease_hard_level = [UIButton buttonWithType:UIButtonTypeCustom];
     [decrease_hard_level setTitle: @"" forState: UIControlStateNormal];
     [decrease_hard_level setBackgroundImage:[UIImage imageNamed:@"left_arrow.png"] forState:UIControlStateNormal];
@@ -87,6 +83,7 @@ NSInteger hard_level;  // 1 ~ 3
     [decrease_hard_level addTarget:self action:@selector(decreaseHardLevel:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:decrease_hard_level];
     
+    // create right arrow
     increase_hard_level = [UIButton buttonWithType:UIButtonTypeCustom];
     [increase_hard_level setTitle: @"" forState: UIControlStateNormal];
     [increase_hard_level setBackgroundImage:[UIImage imageNamed:@"right_arrow.png"] forState:UIControlStateNormal];
@@ -97,6 +94,7 @@ NSInteger hard_level;  // 1 ~ 3
     [increase_hard_level addTarget:self action:@selector(increaseHardLevel:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:increase_hard_level];
     
+    // create hard level label
     hard_level_label = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 80, 30)];
     hard_level_label.text = @"Easy";
     hard_level_label.center = CGPointMake([[UIScreen mainScreen] bounds].size.width / 2 , 40);
@@ -106,21 +104,12 @@ NSInteger hard_level;  // 1 ~ 3
     
 }
 
-
 - (void) initGame {
-    
     [self generateBoard];
     cheat_mode = false;
-    
 }
 
-
 - (void) generateBoard {
-    
-//    rows = 12;
-//    cols = 8;
-//    mines = 8;
-    
     switch(hard_level)
     {
         case 1:
@@ -141,8 +130,6 @@ NSInteger hard_level;  // 1 ~ 3
         default:
             break;
     }
-    
-    //NSInteger tile_width = ([[UIScreen mainScreen] bounds].size.width - 20) / cols;
 
     button_array = [[NSMutableArray alloc] init];  // init button array
     [button_array addObject: @"spare"];     // add object for [0]
@@ -200,10 +187,8 @@ NSInteger hard_level;  // 1 ~ 3
 }
 
 - (void) clearBoard {
-    NSLog(@"cancel");
     if(cols != 0 && rows != 0) {
-        NSLog(@"fff");
-        for(int i = 1; i <= rows * cols; i++) {
+        for(int i = 1; i <= rows * cols; i++) {  // remove all buttons on the board
             UIButton *button = [button_array objectAtIndex:i];
             [button removeFromSuperview];
         }
@@ -260,7 +245,7 @@ NSInteger hard_level;  // 1 ~ 3
         }
     }
     
-    NSLog(@"%d and marked: %d", count, mine_marked);
+    //NSLog(@"%d and marked: %d", count, mine_marked);
     
     if(count == mines || (mine_marked == mines && question_marked == 0)) { // if unopenned tiles or marked mine == mines, win
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You win!"
@@ -477,8 +462,6 @@ NSInteger hard_level;  // 1 ~ 3
         default:
             break;
     }
-    
-       // NSLog(@"%d", hard_level);
 }
 
 
